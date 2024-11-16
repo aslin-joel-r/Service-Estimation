@@ -5,20 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPU Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/popper.js@1"></script>
-    <script src="https://unpkg.com/tippy.js@5"></script>
 </head>
 <body>
-    <div class="card">
+    <div class="card w-full max-w-4xl mx-auto">
         <div class="card-header">
-            <h1 class="card-title">IPU Calculator</h1>
+            <h1 class="card-title text-2xl font-bold text-center">IPU Calculator</h1>
         </div>
         <div class="card-content">
-            <div class="scroll-area" id="servicesContainer">
-                <!-- Services will be dynamically inserted here -->
+            <div class="mb-4 flex items-center space-x-2">
+                <div class="relative flex-grow">
+                    <input id="searchInput" class="input pl-8" type="text" placeholder="Search services...">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <div class="select">
+                    <select id="sortSelect">
+                        <option value="name">Sort by Name</option>
+                        <option value="ipu">Sort by IPU (High to Low)</option>
+                    </select>
+                </div>
             </div>
-            <div class="total-ipu">
-                <p class="total-ipu-text">Total IPU Consumption: <span id="totalIPU">0.00</span></p>
+            <div class="scroll-area h-[400px] pr-4 mb-6">
+                <div id="servicesList" class="space-y-6">
+                    <!-- Services will be dynamically inserted here -->
+                </div>
+            </div>
+            <div class="mt-6 text-center bg-primary text-primary-foreground p-4 rounded-lg">
+                <p class="text-xl font-bold">Total IPU Consumption: <span id="totalIPU">0.00</span></p>
             </div>
         </div>
     </div>
